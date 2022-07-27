@@ -1,0 +1,206 @@
+@import 'abstracts/variables';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+
+*, 
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type='text']{
+    font-size: 16px;
+}
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-items: center;
+    // min-height: 100vh;
+    
+
+}
+
+
+
+nav{
+    padding: 2rem 1.5rem;
+    // background-color: red;
+    
+}
+
+.desktop{
+    display: none;
+}
+
+article.main{
+    // display: f;
+
+    // coming-soon-section
+    .coming-soon{
+        
+        padding: 3rem 1.5rem;
+        text-align: center;
+
+
+        &_content{
+            margin-bottom: 2rem;
+
+            h3{ 
+                font-size: 2rem;
+                text-transform: uppercase;
+                color: $desaturated-red;
+                font-weight: 300;
+                letter-spacing: .5rem;
+
+                span{
+                    color: $dark-grayish-red;
+                    font-weight: 600;
+                }
+            }
+
+            p{
+                margin-top: 1rem;
+                font-size: 1rem;
+                font-weight: 300;
+                color: $desaturated-red;
+                line-height: 1.4;
+                margin-bottom: 2rem;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                
+
+                .error input{
+                    border-color: red;
+                }
+
+                .succes input{
+                    border: 1px solid green;
+                }
+
+                input{
+                    // position: relative;
+                    padding: .7rem 2rem;
+                    border-radius: 2rem;
+                    border:1px solid $desaturated-red;
+                    outline: none;
+                    width: 100%;
+
+                    &::placeholder{
+                        color: $desaturated-red;
+                    }
+
+               
+                }
+                 
+                .show-error{
+                    text-align: left;
+                    margin: 1rem;
+                    color: red;
+                    font-size: .7rem;
+                    text-transform: capitalize
+
+                    img{
+                     position: absolute;
+                    top: .5rem;
+                    right: 5rem;
+                    }
+                }
+
+                .error-img{
+                    position: absolute;
+                    top: 8px;
+                    right: 5rem;
+                    opacity: 0;
+                }
+                
+
+                button{
+                    outline: none;
+                    cursor: pointer;
+                    padding: .6rem 2rem;
+                    right: -.5rem;
+                    border: none;
+                    position: absolute;
+                    // top: 1rem;
+                    // margin-bottom: 2rem;
+                    border-radius: 2rem;
+                    background-image: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+                }
+            }
+        }
+    }
+
+    .cover-image{
+        overflow: none;
+
+        #cover-img-desktop{
+            display: none;
+        }
+
+        #cover-img-mobile{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media screen and (min-width: 800px){
+    .desktop{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+    article.main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+
+        .cover-image{
+            display: flex;
+            // grid-column: 2;
+            #cover-img-mobile{
+                display: none;
+                
+            }
+
+            #cover-img-desktop{
+                display: block;
+                width: 100%;
+                min-width: 650px;
+            }
+        }
+
+        .coming-soon{
+            // width: 50%;
+            grid-column: 1;
+            grid-row: 1;
+
+            text-align: initial;
+            padding: 0 5rem;
+
+            &_content{
+                margin-top: 5rem;
+
+                h3{
+                    font-size: 5rem;
+                }
+            }
+        }
+    }
+}
+
+
+.show{
+    visibility: hidden;
+}
